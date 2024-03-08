@@ -1,0 +1,53 @@
+#include<iostream.h> 
+#include<string.h>
+#include<conio.h> 
+void main()
+ {
+char str1[20],str2[20],*s,*rs; 
+clrscr();
+cout<<"\n\n Enter a string:"; 
+cin>>str1;
+strcpy(str2,str1);
+s=str1; 
+rs=strrev(str2);
+if(strcmp(s,rs)==0)
+cout<<"\n\n The given string is palindrome"; 
+else
+cout<<"\n\n The given string is not a palindrome"; getch();
+}
+________________________________________________________________________________
+#include<iostream.h>
+#include<conio.h> 
+#include<fstream.h>
+void main()
+{
+fstream f; char c; int lno=1;
+f.open("line.txt",ios::in|ios::out|ios::trunc);
+f<<"C \n C++ \n JAVA \n COBOL \n PASCAL";
+f.seekg(0);
+clrscr(); 
+cout<<lno++<<" . ";
+while(f)
+{
+f.get(c);
+if(c=='\n') cout<<"\n"<<lno++<<" . ";
+else
+cout<<c;
+}
+f.close();
+getch()}
+______________________________________________________________________________________
+#include<fstream.h>
+#include<conio.h>
+#include<iostream.h>
+void main()
+{
+ifstream in; ofstream out; char c;
+out.open("file1.txt",ios::ate);
+in.open("file2.txt",ios::in); while(in)
+{
+in.get(c); // Read from file2 out.put(c); // Write into file1
+}
+in.close();
+out.close();
+}
