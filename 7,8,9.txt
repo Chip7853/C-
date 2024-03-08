@@ -1,0 +1,166 @@
+#include<iostream.h> 
+#include<conio.h> 
+class SHAPE
+public:
+float l,b,area,peri; void getdata()
+{
+cout<<"\n\n Enter the values of length and breath:"; cin>>l>>b;
+}
+virtual void calc_area()
+{
+}
+virtual void calc_peri()
+{
+}
+};
+class SQUARE:public SHAPE
+{
+int a; public:
+void calc_area()
+{
+cout<<"\n Enter the value for side of square:"; cin>>a;
+area=a*a;
+cout<<"\n\n Area of square="<<area;
+}
+void calc_peri()
+{
+peri=4*a;
+cout<<"\n\n Perimeter of square ="<<peri;
+}
+};
+ 
+class RECTANGLE:public SHAPE
+void calc_area()
+{
+getdata(); area=l*b;
+cout<<"\n\n Area of rectangle="<<area;
+}
+void calc_peri()
+{
+peri=2*(l+b);
+cout<<"\n\n Perimeter of rectangle="<<peri;
+}
+};
+class TRIANGLE:public SHAPE
+{
+public:
+void calc_area()
+{
+getdata(); area=(l*b)/2.0;
+cout<<"\n\n Area of the triangle ="<<area;
+}
+void calc_peri()
+{
+int h;
+cout<<"\n\n Enter height="; cin>>h;
+peri=l+b+h;
+cout<<"\n\n Perimeter of triangle="<<peri;
+}
+};
+void main()
+{
+int opt;
+SHAPE *ptr; clrscr();
+cout<<"\n\n\t\t 1.SQUARE \n\n\t\t 2.RECTANGLE \n\n\t\t 3.TRIANGLE "; 
+cout<<"\n\n\t Enter your option:";
+cin>>opt; switch(opt)
+{
+case 1:
+SQUARE s;
+ptr=&s;
+ptr->calc_area(); ptr->calc_peri(); break;
+case 2:
+RECTANGLE r;
+ptr=&r;
+ptr->calc_area(); ptr->calc_peri(); break;
+case 3:
+TRIANGLE t;
+ptr=&t;
+ptr->calc_area(); ptr->calc_peri(); break;
+default:
+cout<<"\n\n\t\t INVALID OPTION"; break;
+}
+getch();
+}
+___________________________________________________________________________________________________#include<iostream.h>
+#include<conio.h> class class2;
+class class1
+{
+int a; float b; public:
+void getdata()
+{
+cout<<"\n Enter a and b values:"; cin>>a>>b;
+}
+void display()
+{
+ cout<<"\n\n Class1 content \n\n"; cout<<"\n a="<<a<<"\n b="<<b;
+ }
+friend void result(class1,class2);
+};
+class class2
+{
+int x;
+float y; public:
+void getdata()
+{
+cout<<"\n Enter x and y values:"; cin>>x>>y;
+}
+void display()
+{
+cout<<"\n\n Class 2 content \n\n"; cout<<"\n x="<<x<<"\n y="<<y;
+}
+friend void result(class1,class2);
+};
+void result(class1 c1,class2 c2)
+{
+cout<<"\n\n Class1 content using friend function\n\n"; cout<<"\n a="<<c1.a<<"\n b="<<c1.b;
+cout<<"\n \n Class2 content using friend function\n"; cout<<"\n x="<<c2.x<<"\n y="<<c2.y;
+}
+void main()
+{
+clrscr();
+class1 cl1; class2 cl2; cl1.getdata(); cl2.getdata(); cl1.display(); cl2.display(); result(cl1,cl2); getch()
+}
+_____________________________________________________________________________________________________________________
+e: #include<iostream.h> #include<conio.h>
+int i,j,c1,c2,r1,r2,a[10][10];
+float b[10][10],c[10][10];
+void get(int &x)
+{
+cin>>x;
+}
+void get(float &x)
+{
+cin>>x;
+}
+void sum()
+{
+for(i=0;i<r1;i++) for(j=0;j<c1;j++)
+c[i][j]=a[i][j]+b[i][j];
+}
+void display()
+{
+for(i=0;i<r1;i++)
+{
+for(j=0;j<c1;j++)
+cout<<c[i][j]<<"\t"; cout<<"\n";
+}
+}
+void main()
+{
+clrscr();
+cout<<"\n\n Enter row,col for matrix1:"; cin>>r1>>c1;
+cout<<"\n\n Enter row,col for matrix2:"; cin>>r2>>c2;
+if((r1!=r2||c1!=c2))
+{
+cout<<"\n Matrix addition is not possible"; goto end;
+}
+cout<<"\n Enter matrix1\n\n"; for(i=0;i<r1;i++)
+for(j=0;j<c1;j++) get(a[i][j]);
+cout<<"\n Enter matrix2\n\n"; for(i=0;i<r2;i++)
+for(j=0;j<c2;j++) get(b[i][j]);
+sum();
+cout<<"The Resultant matrix\n"; display();
+end: getch();
+}
+ 
