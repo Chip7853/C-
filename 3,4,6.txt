@@ -1,0 +1,125 @@
+: #include<iostream.h>
+#include<conio.h> 
+class number
+{
+int no, sum;
+public:
+void add(void);
+inline void display(int); number()
+{
+sum=0;
+}
+cout<<"\n\n\n Enter a number:"; cin>>no;
+}
+~number()
+{
+}
+inline void number::display(int result)
+{
+cout<<"\n\n Sum of Individual Digits="<<result;
+}
+void number::add()
+{
+loop: while(no>0)
+{
+sum=sum+no%10; no=no/10;
+}
+if(sum>9)
+{
+no=sum; sum=0; goto loop;
+}
+display(sum);
+}
+void main()
+{
+clrscr(); 
+number n;
+n.add();
+getch();
+}
+ ____________________________________________________________________________________________________________
+
+#include<iostream.h>
+#include<conio.h> 
+class FLOAT
+{
+float a; public: FLOAT()
+{
+cout<<"\n\n Enter the float number:"; cin>>a;
+}
+void operator+(FLOAT x)
+{
+cout<<"\n\n\t ADDITION OF TWO NUMBERS:"<<a+x.a;
+}
+void operator-(FLOAT x)
+{
+cout<<"\n\n\t SUBTRACTION OF TWO NUMBERS:"<<a-x.a;
+}
+void operator*(FLOAT x)
+{
+cout<<"\n\n\t MULTIPLICATION OF TWO NUMBERS:"<<a*x.a;
+}
+void operator/(FLOAT x)
+{
+cout<<"\n\n\t DIVISION OF TWO NUMBERS:"<<a/x.a;
+}
+};
+void main()
+{
+clrscr();
+FLOAT f1,f2;
+f1+f2; f1-f2; f1*f2; f1/f2; getch()
+_________________________________________________________________________--
+
+#include<conio.h>
+void line()
+{
+cout.width(80); cout.fill('_');
+}
+class emp
+{
+public:
+int eno;
+char gr, ename[25], dept[20]; float bs;
+void getdata()
+{
+cout<<"\n Enter the employee no:"; cin>>eno;
+cout<<"\n Enter the employee name:"; cin>>ename;
+cout<<"\n Enter the employee department:"; cin>>dept;
+cout<<"\n Enter the basic pay:"; cin>>bs;
+cout<<"\n Enter the grade for salary(a/b):"; cin>>gr;
+}
+};
+class pay:public emp
+{
+float da,np,gs,hra,pf; public:
+void calc()
+{
+if(gr=='a'||gr=='A')
+{
+da=bs*0.08; hra=bs*0.2; pf=bs*0.06;
+}
+else if(gr=='b'||gr=='B')
+{
+da=bs*0.06; hra=bs*0.15; pf=bs*0.05;
+}
+gs=bs+da+hra; np=gs-pf;
+cout<<"\n\t\t\t EMPLOYEE PAYSLIP"; cout<<"\n\n\n ENO:"<<eno; cout<<"\n\n\n ENAME:"<<ename; 
+cout<<"\n\n\n DEPARTMENT:"<<dept; cout<<"\n\n\n JULY 2021"; cout<<"\n\n";
+line(); cout<<"\n\n"; cout.precision(2);
+cout.setf(ios::fixed,ios::floatfield); cout<<"BASIC PAY:"<<bs;
+cout<<"\t DA:"<<da; cout<<"\t HRA:"<<hra; cout<<"\t PF:"<<pf; cout<<"\n\n";
+line(); cout<<"\n\n";
+cout<<"GROSS SALARY:"<<gs;
+cout<<"\n\n";
+cout<<"\n\n NET SALARY:"<<np; cout<<"\n\n";
+line();
+cout<<"\n\n\t\t\t THANK YOU";
+}
+};
+void main()
+{
+clrscr(); pay p; p.getdata();
+p.calc();
+getch();
+}

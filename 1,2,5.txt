@@ -1,0 +1,165 @@
+#include<iosteam.h> 
+ #include<conio.h> 
+ #include<stdlib.h>
+ class stack
+{
+int a[10],top;
+public: 
+stack()
+{
+top=0;
+}
+void push(void); 
+void pop(void);
+void display(void);
+};
+void stack :: push()
+{
+int i,n;
+cout<<"\n enter no. of elements:"; cin>>n;
+cout<<"\n enter the elements"; 
+for(i=0;i<n;i++)
+{
+if(top<10){
+cin>>a[top++];
+}
+else
+{
+cout<<"\n Stack is full"; 
+break;
+}
+}
+getch();
+}
+void stack :: pop()
+{
+if(top==0)
+{
+cout<<"\n Stack is empty";
+}
+else
+{
+top--;
+cout<<a[top]<<" deleted";
+}
+getch();
+}
+void stack :: display()
+{
+int i;
+cout<<"\n content of stack"; 
+for(i=top-1;i>=0;i--)
+cout<<"\n"<<a[i]; getch();
+}
+void main()
+{
+stack s; 
+int opt;
+do
+{
+clrscr();
+cout<<"Stack Operations"; cout<<”\n “; 
+cout<<"\n 1. Push";
+cout<<"\n 2. Pop";
+cout<<"\n 3. Display";
+cout<<"\n 4. Exit";
+cout<<"\n Enter your option : "; 
+cin>>opt;
+switch(opt)
+{
+case 1:
+s.push();
+break;
+case 2:
+s.pop(); 
+break;
+case 3:
+s.display(); 
+break;
+case 4:
+exit(1);
+}
+}while(opt<=3); getch();}
+_________________________________________________________________________________________________________
+#include<iostream.h>
+#include<conio.h>
+class arithmetic
+{
+int a; float b;
+public:
+void getdata()
+{
+cout<<"\n Enter a value:"; cin>>a;
+cout<<"\n Enter b value:"; cin>>b;
+}
+void add() // Addition
+{
+cout<<"\n\n Addition: a+b="<<a+b;
+}
+void sub() // Subtraction
+{
+cout<<"\n\n Subtraction: a-b="<<a-b;
+}
+void mul()
+{
+cout<<"\n\n Multiplication: a*b="<<a*b;
+ }
+ void div() // Division
+{
+cout<<"\n\n Division: a/b="<<a/b;
+}
+void mod() // Modulo division
+{
+cout<<"\n\n Modulo Division="<<a%(int)b;
+}
+};
+void main()
+{
+clrscr();
+cout<<"\n\n\t\t\t ARITHMETIC OPERATIONS\n"; arithmetic ao;
+ao.getdata();
+ao.add();
+ao.sub();
+ao.mul();
+ao.div();
+ao.mod();
+getch();
+}________________________________________________________________________________________
+#include<iostream.h> 
+#include<conio.h>
+#include<string.h> 
+class STRING
+{
+char a[50]; public:
+void get()
+{
+cout<<"\n\n Enter the String:\t"; cin>>a;
+}
+void display()
+{
+cout<<"The length of the string is :\t"<<a<<"\t"<<strlen(a);
+}
+void operator==(STRING x) // comparing two strings
+{
+cout<<"\n\n\t\t String Comparision\n";
+ if((strcmp(a,x.a))==0)
+cout<<"\n\t\t Strings are equal\n";
+ else
+cout<<"\n\t\t Strings are unequal\n";
+}
+void operator+(STRING x) // combining two strings
+{
+cout<<"\n Concatenated String:\t"; 
+cout<<strcat(a,x.a);
+cout<<"\n\n\n Length of the Concatenated string is:\t"<<strlen(a);
+}
+};
+void main()
+{
+clrscr(); STRING s1,s2;
+s1.get(); cout<<"\n"; s2.get(); 
+cout<<"\n"; s1.display();
+cout<<"\n\n"; s2.display();
+s1==s2;
+s1+s2; getch();
+}
