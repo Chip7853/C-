@@ -1,0 +1,21 @@
+import java.io.*; 
+class extract
+{
+public static void main(String args[]) throws IOException
+{
+DataInputStream x=new 
+DataInputStream(System.in); String s,m;
+int start; 
+int end;
+System.out.println("\t*");
+System.out.println("\tEXTRACTION OF CHARACTER"); 
+System.out.println("\t*"); 
+System.out.println("\tENTER ANY STRING:"); s=x.readLine();
+System.out.println("\tENTER STARTING POSITION:"); 
+start=Integer.parseInt(x.readLine()); 
+System.out.println("\tENTER ENDING POSITION:"); 
+end=Integer.parseInt(x.readLine()); 
+m=s.substring(start,end);
+System.out.println(m);
+}
+}
