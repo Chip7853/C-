@@ -1,0 +1,42 @@
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+public class Ld extends Applet implements ActionListener {
+List os,browser;
+String msg="";
+public void init() {
+os=new List(4,true);
+browser= new List(4,false);
+os.add("WINDOWS 98/XP");
+os.add("WINDOWS NT/2000");
+os.add("SOLARIS");
+os.add("MACOS");
+browser.add("NETSCAPE 3.X");
+browser.add("NETSCAPE 4.X");
+browser.add("NETSCAPE 5.X");
+browser.add("NETSCAPE 6.X");
+browser.add("INTERNET EXPLORER4.0");
+browser.add("INTERNET EXPLORER 5.0");
+browser.add("INTERNET EXPLORER 6.0");
+browser.add("LYNX 2.4");
+browser.select(1);
+add(os);
+add(browser);
+os.addActionListener(this);
+browser.addActionListener(this
+;
+}
+public void actionPerformed(ActionEventoc) {
+repaint(); }
+public void paint(Graphics g) {
+intidx[];
+msg="CURRENT OS";
+idx=os.getSelectedIndexes();
+for(inti=0;i<idx.length;i++)
+msg+=os.getItem(idx[i])+"";
+g.drawString(msg,6,120);
+msg="CURRENT BROWSER";
+msg+=browser.getSelectedItem();
+g.drawString(msg,6,100); }}
+/*<applet code="Ld.class" width=375 height=200>
+</applet>*/
