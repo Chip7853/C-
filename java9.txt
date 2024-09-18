@@ -1,0 +1,40 @@
+simport java.awt.*;
+import java.applet.*;
+/*<applet code="color9.class" width=200 height=200>
+</applet>*/
+public class color9 extends Applet
+{
+Frame f1;
+MenuBar mb;
+Menu f,e,v,t;
+public void init()
+{
+f1=new Frame("editor");
+mb=new MenuBar();
+f1.setMenuBar(mb);
+f=new Menu("file");
+e=new Menu("edit");
+v=new Menu("view");
+t=new Menu("tool");
+f.add(new MenuItem("new"));
+f.add(new MenuItem("open"));
+f.add(new MenuItem("save"));
+f.add(new MenuItem("save as"));
+f.add(new MenuItem("close"));
+e.add(new MenuItem("cut"));
+e.add(new MenuItem("copy"));
+e.add(new MenuItem("paste"));
+e.add(new MenuItem("clear"));
+v.add(new MenuItem("hidden window"));
+v.add(new MenuItem("split window"));
+v.add(new MenuItem("close window"));
+v.add(new MenuItem("size window"));
+t.add(new CheckboxMenuItem("settings"));
+t.add(new CheckboxMenuItem("color"));
+mb.add(f);
+mb.add(e);
+mb.add(v);
+mb.add(t);
+f1.show();
+}
+}
