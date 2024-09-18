@@ -1,0 +1,70 @@
+import java.io.*;
+import java.applet.*;
+import java.awt.*;
+import java.awt.event.*;
+/*<applet code="color10.class" width=500 height=500>
+</applet>*/
+public class color10 extends Applet implements MouseListener,MouseMotionListener
+{
+String msg=" ";
+int mx=0,my=10;
+public void init()
+{
+addMouseListener(this);
+addMouseMotionListener(this);
+}
+public void mouseClicked(MouseEvent me)
+{
+mx=0;
+my=10;
+msg="mouse clicked";
+repaint();
+}
+public void mouseEntered(MouseEvent me)
+{
+mx=0;
+my=10;
+msg="mouse entered";
+repaint();
+}
+public void mousePressed(MouseEvent me)
+{
+mx=0;
+my=10;
+msg="mouse pressed";
+repaint();
+}
+public void mouseExited(MouseEvent me)
+{
+mx=0;
+my=10;
+msg="mouse exited";
+repaint();
+}
+public void mouseReleased(MouseEvent me)
+{
+mx=0;
+my=10;
+msg="mouse released";
+repaint();
+}
+public void mouseDragged(MouseEvent me)
+{
+mx=0;
+my=10;
+msg="mouse dragged";
+showStatus("dragging mouse at"+mx+","+my);
+repaint();
+}
+public void mouseMoved(MouseEvent me)
+{
+mx=0;
+my=10;
+showStatus("moving mouse at"+me.getX()+","+me.getY());
+repaint();
+}
+public void paint(Graphics g)
+{
+g.drawString(msg,200,250);
+}
+}
