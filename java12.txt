@@ -1,0 +1,10 @@
+import java.io.*;
+class RandomAccessFile1 {
+public static void main(String args[]) { RandomAccessFile  rFile;
+try
+{
+rFile=new RandomAccessFile("city.txt","rw"); rFile.seek(rFile.length()); rFile.writeBytes("\nCHENNAI"); rFile.close();
+}
+catch(IOException ioe)
+{ System.out.println(ioe); }
+} }
