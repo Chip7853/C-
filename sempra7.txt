@@ -1,0 +1,36 @@
+import java.applet.Applet;
+import java.awt.*;
+import java.awt.event.*;
+public class sempra7 extends Applet implements ActionListener{
+TextField t;
+List l;
+Button b;
+public void init(){
+t=new TextField(40);
+add(t);
+l=new List(3,true);
+l.add("option 1");
+l.add("option 2");
+l.add("option 3");
+l.add("option 4");
+l.add("option 5");
+l.add("option 6");
+add(l);
+b=new Button("Show");
+b.addActionListener(this);
+add(b);
+}
+String sel[];
+public void actionPerformed(ActionEvent e){
+String o=new String("you Selected ");
+if(e.getSource()==b){
+t.setText("");
+sel=l.getSelectedItems();
+for(int i=0;i<sel.length;i++){
+o+=""+sel[i];
+}
+t.setText(o);
+}
+}
+}
+/*<applet code="sempra7.class" width=300 height=300></applet>*/
