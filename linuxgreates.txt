@@ -1,0 +1,12 @@
+echo "Enter how many numbers: "
+   read n
+   echo "Enter number 1: "
+   read max
+    
+   for ((i=2; i<=n; i++)); do
+       echo "enter number $i: "
+   read num                                                                                                                                          
+       [ $num -gt $max ] && max=$num
+  done
+   
+  echo "Greatest number: $max"
