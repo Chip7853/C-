@@ -1,0 +1,112 @@
+eco -e "username:"$USER
+echo -e "loginnmae:"$LOGNAME
+echo -e "currentshell:"$SHELL
+echo -e "homedirevtory:"$HOME
+echo -e "our pc os is :"$OSTYPE
+echo -e "current directory:"pwd
+echo -e "system configuration:"lscpu
+echo -e "free memory space:"free-m
+_____________________________________________4________
+
+echo "1- who am i?"
+echo "2- who is logged on?"
+echo "3- date"
+echo "4- calendar"
+echo "5- Current directory"
+echo "6- file listing"
+echo "enter your choice:"
+read n
+case $n in
+1) whoami;;
+2) who;;
+3) date;;
+4) cal;;
+5) pwd;;
+6) ls;;
+esac
+________________________________________________5______
+text="apple banana grape orange
+apple grape lenon
+banana lemon orange
+grape lemon orange"
+echo "Line containing the word'grape'"
+echo "$text"|grep 'grape'
+echo
+echo "Sorted line:"
+echo "$text"|sort
+echo "word count:"
+echo "$text"|wc -w
+echo "Line count:"
+echo "$text"|wc -l
+echo "Character count:"
+echo "$text"|wc -c
+echo "Text converted to uppercase:"
+echo "$text"| tr '[:lower:]' '[:upper:]'
+_____________________________________________________6_
+echo "enter any file"
+read filenm
+if [ -e $filenm ]
+then
+echo $filenm "file exist"
+if [ -s $filenm ]
+then
+echo $filenm "file has size >0"
+else
+rm $filenm
+echo $filenm "file is deleted which has size = 0"
+fi
+else
+echo "file not exist"
+fi
+_____________________________________________________7_______
+echo -n "enter number"
+read n
+sd=0
+sum=0
+while [ $n -gt 0 ]
+do
+sd=$(($n % 10))
+n=$(($n / 10))
+sum=$(($sum+$sd))
+done
+echo "sum of all digits is $sum"
+_____________________________________________________8______
+echo "enter size(n)"
+read n
+i=1
+max=0
+echo "enter number"
+while [ $i -le $n ]
+do
+read num
+if [ $i -eq 1 ]
+then
+max=$num
+else
+if [ $num -gt $max ]
+then
+max=$num
+fi
+fi
+i=$(( i+1))
+done
+echo "greastest number is $max"
+_____________________________________________________9____________
+echo "enter a number"
+read n
+rev=$(echo $n | rev)
+if  [  $n  -eq $rev  ]
+then
+echo "Number is palindrome"
+else
+echo "Number is not a palindrome"
+fi
+____________________________________________________10_______________
+echo "enter the table number"
+read n
+echo "enter the range"
+read range
+for (( i=1 ; i <= range ; i++ ))
+{
+echo "$i * $n = `expr $n \* $i`"
+}
