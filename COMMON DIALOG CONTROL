@@ -1,0 +1,20 @@
+Private Sub Combo1_Click()
+RichTextBox1.Font = Combo1.Text
+RichTextBox1.Visible = True
+RichTextBox1.SetFocus
+End Sub
+Private Sub miexit_Click()
+End
+End Sub
+Private Sub miopen_Click()
+CommonDialog1.ShowOpen
+RichTextBox1.FileName = CommonDialog1.FileName
+RichTextBox1.Visible = True
+RichTextBox1.SetFocus
+End Sub
+Private Sub misave_Click()
+CommonDialog1.ShowSave
+RichTextBox1.SaveFile (CommonDialog1.FileName)
+RichTextBox1.Visible = True
+RichTextBox1.SetFocus
+End Sub
