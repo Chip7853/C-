@@ -1,0 +1,29 @@
+Private Sub Command1_Click()
+Dim a, b, c As Integer
+c = Val(Text1.Text)
+a = 0
+b = 1
+List1.AddItem (a)
+List1.AddItem (b)
+For i = 1 To c - 2
+s = a + b
+List1.AddItem (s)
+a = b
+b = s
+Next i
+End Sub
+Private Sub Command2_Click()
+Dim n, i, sum As Integer
+n = Val(Text1.Text)
+For i = 1 To n
+sum = sum + i
+Next
+List1.AddItem (sum)
+End Sub
+Private Sub Command3_Click()
+Text1.Text = ""
+List1.Clear
+End Sub
+Private Sub Command4_Click()
+End
+End Sub
