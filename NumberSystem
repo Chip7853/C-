@@ -1,0 +1,33 @@
+Private Sub Command1_Click()
+Text2.Text = Oct(Text1.Text)
+Label2.Caption = "octal"
+Text2.Visible = True
+Label2.Visible = True
+End Sub
+Private Sub Command2_Click()
+Label2.Caption = "binary"
+Label2.Visible = True
+Text2.Visible = True
+Dim i, sum, q, r As Integer
+q = 1
+i = Text1.Text
+Do Until i < 2
+r = i Mod 2
+i = i / 2
+sum = r & sum
+Loop
+Text2.Text = q & sum
+End Sub
+Private Sub Command3_Click()
+Text2.Text = Hex(Text1.Text)
+Label2.Caption = "hexadecimal"
+Label2.Visible = True
+Text2.Visible = True
+End Sub
+Private Sub Command4_Click()
+Text1.Text = " "
+Text2.Text = " "
+End Sub
+Private Sub Command5_Click()
+End
+End Sub
