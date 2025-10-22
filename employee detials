@@ -1,0 +1,36 @@
+
+create table emp(eno number primary key,ename varchar2(20),desination varchar2(30),gender varchar2(5),age number,doj date,salary number);
+
+insert into emp values(&eno,'&ename','&destination','&gender',&age,'&doj',&salary);
+
+desc emp;
+
+select * from emp;
+
+select * from emp where salary >30000;
+
+select * from emp where age between 20 and 30;
+
+select * from emp where salary<50000 and salary >30000;
+
+select * from emp where desination='manager' or desination='developer';
+
+select * from emp order by ename desc;
+
+select * from emp order by ename asc;
+
+select * from emp where salary >30000 union select * from emp where age between 25 and 30;
+
+select * from emp where salary >30000 union  all select * from emp where age between 25 and 30;
+
+select * from emp where salary >30000 minus select * from emp where age between 25 and 30;
+
+select count(*) from emp where gender='m';
+
+select sum(salary) from emp where gender='m';
+
+select avg(salary) from emp where gender='m';
+
+select min(salary) from emp where gender='m';
+
+select max(salary) from emp where gender='m';
