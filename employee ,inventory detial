@@ -34,3 +34,27 @@ select avg(salary) from emp where gender='m';
 select min(salary) from emp where gender='m';
 
 select max(salary) from emp where gender='m';
+
+
+______________________________________________________________________________________________________________________________
+
+create table inventory(pno number primary key,pname varchar(20),rate number);
+
+insert into inventory values(&pno,'&pname',&rate);
+
+select * from inventory;
+
+update inventory set rate=rate+(rate*20/100);
+
+alter table inventory add no_of_item number;
+
+desc inventory;
+
+ update inventory set no_of_item=case pno
+  when 1 then 10
+  when 2 then 5
+  when 3 then 7
+  when 4 then 8
+  when 5 then 3
+  end;
+
