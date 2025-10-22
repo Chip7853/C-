@@ -1,0 +1,25 @@
+Private Sub mblue_Click()
+MDIForm1.BackColor = vbBlue
+End Sub
+Private Sub mcascade_Click()
+MDIForm1.Arrange (VbTilecascade)
+End Sub
+Private Sub mexit_Click()
+End
+End Sub
+Private Sub mgreen_Click()
+MDIForm1.BackColor = vbGreen
+End Sub
+Private Sub mhorizontal_Click()
+MDIForm1.Arrange (vbTileHorizantal)
+End Sub
+Private Sub mnew_Click()
+Dim f As New Form1
+f.Show
+End Sub
+Private Sub mred_Click()
+MDIForm1.BackColor = vbRed
+End Sub
+Private Sub mvertical_Click()
+MDIForm1.Arrange (vbTileVertical)
+End Sub
