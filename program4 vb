@@ -1,0 +1,21 @@
+Private Sub Command1_Click()
+CommonDialog1.ShowSave
+RichTextBox1.SaveFile (CommonDialog1.FileName)
+RichTextBox1.Visible = True
+RichTextBox1.SetFocus
+End Sub
+Private Sub Command2_Click()
+RichTextBox1.Text = ""
+End Sub
+Private Sub Command3_Click()
+End
+End Sub
+Private Sub Dir1_Change()
+File1.Path = Dir1.Path
+End Sub
+Private Sub Drive1_Change()
+Dir1.Path = Drive1.Drive
+End Sub
+Private Sub File1_Click()
+RichTextBox1.FileName = File1.Path & "\" & File1.FileName
+End Sub
