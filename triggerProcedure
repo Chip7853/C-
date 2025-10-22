@@ -110,6 +110,90 @@ BEGIN
 END;
 /
 EXEC prmarkdelete(1);
+________________________________________________________________________________________________________
+create table tb_mark(rno number,name varchar(20),mark1 number,mark2 number(3), mark3 number,total number,avg number(5,2),result varchar(10));
+
+CREATE OR REPLACE PROCEDURE prmarkins (
+prno    IN NUMBER,
+pname   IN VARCHAR2,
+pmark1  IN NUMBER,
+pmark2  IN NUMBER,
+pmark3  IN NUMBER
+)
+IS
+vtotal   NUMBER;
+vaverage NUMBER;
+vresult  VARCHAR2(20);
+BEGIN
+vtotal := pmark1 + pmark2 + pmark3;
+vaverage := vtotal / 3;
+IF (pmark1 >= 40 AND pmark2 >= 40 AND pmark3 >= 40) THEN
+vresult := 'Pass';
+ELSE
+vresult := 'Fail';
+END IF;
+INSERT INTO tb_mark
+VALUES (prno, pname, pmark1, pmark2, pmark3,vtotal, vaverage, vresult);
+END;
+/
+exec prmarkins(1,'king',89,90,89);
+
+select * from tbmark;
+
+
+CREATE OR REPLACE PROCEDURE prmarkupdate (
+    prno    IN NUMBER,
+    pmark1  IN NUMBER,
+    pmark2  IN NUMBER,
+    pmark3  IN NUMBER
+)
+IS
+    vtotal   NUMBER;
+    vaverage NUMBER;
+    vresult  VARCHAR2(10);
+BEGIN
+    vtotal := pmark1 + pmark2 + pmark3;
+    vaverage := vtotal / 3;
+
+    IF (pmark1 >= 40 AND pmark2 >= 40 AND pmark3 >= 40) THEN
+        vresult := 'Pass';
+    ELSE
+        vresult := 'Fail';
+    END IF;
+
+    UPDATE tb_mark
+    SET mark1 = pmark1,
+        mark2 = pmark2,
+        mark3 = pmark3,
+        total = vtotal,
+        avg = vaverage,
+        result = vresult
+    WHERE rno = prno;
+
+    DBMS_OUTPUT.PUT_LINE('Record updated successfully!');
+END;
+/
+EXEC prmarkupdate(1, 90, 88, 85);
+
+
+CREATE OR REPLACE PROCEDURE prmarkdelete (
+    prno IN NUMBER
+)
+IS
+BEGIN
+    DELETE FROM tb_mark
+    WHERE rno = prno;
+
+    DBMS_OUTPUT.PUT_LINE('Record deleted successfully!');
+END;
+/
+EXEC prmarkdelete(1);
+
+
+
+
+
+
 
 
 
